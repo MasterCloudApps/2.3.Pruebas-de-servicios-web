@@ -22,9 +22,8 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file tema1/spring-test-ejem1/pom.xml
-    - name: Archive artifact
-      run: mkdir staging && cp target/*.jar staging
-      uses: actions/upload-artifact@v1
+    - run: mkdir staging && cp target/*.jar staging
+    - uses: actions/upload-artifact@v1
       with:
         name: Package
         path: staging    
