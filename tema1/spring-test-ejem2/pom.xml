@@ -32,4 +32,11 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+		  <id>github</id>
+		  <name>GitHub MasterCloudApps Apache Maven Packages</name>
+		  <url>https://maven.pkg.github.com/MasterCloudApps/snapshots</url>
+		</repository>
+	 </distributionManagement>
 </project>
