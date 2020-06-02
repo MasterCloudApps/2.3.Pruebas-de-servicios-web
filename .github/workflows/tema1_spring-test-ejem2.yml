@@ -13,16 +13,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        jdk: [8, 11, 14]
 
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK
       uses: actions/setup-java@v1
       with:
-        java-version: ${{ matrix.jdk }}
+        java-version: 11
     - name: Cache Maven packages
       uses: actions/cache@v2
       with:
@@ -36,6 +33,10 @@ jobs:
       with:
         name: spring-test-ejem2
         path: staging
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy
+      env:
+        GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
     - name: Surefire Report
       uses: ScaCap/action-surefire-report@v1.0.2
       with:
