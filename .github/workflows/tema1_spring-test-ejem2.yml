@@ -34,7 +34,7 @@ jobs:
         name: spring-test-ejem2
         path: staging
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy
+      run: mvn deploy --file tema1/spring-test-ejem2/pom.xml
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
     - name: Surefire Report
