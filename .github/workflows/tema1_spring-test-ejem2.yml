@@ -41,7 +41,7 @@ jobs:
     - name: Publish to GitHub Packages Apache Maven
       run: |
         mvn install -B -DskipTests --file tema1/spring-test-ejem2/pom.xml
-        mvn deploy -B -X -DskipTests --file tema1/spring-test-ejem2/pom.xml
+        mvn deploy -B -DskipTests --file tema1/spring-test-ejem2/pom.xml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN is the default env for the password
 
