@@ -156,8 +156,6 @@ public class BooksServiceTest {
 
 		List<String> books = this.service.getBookTitles("Java");
 
-		System.out.println(books);
-
 		assertThat(books).hasSize(2);
 		assertThat(books).containsExactly("Java a Tope: J2me (java 2 Micro Edition).",
 				"Introduccion Al Desarrollo de Programas Con Java");
