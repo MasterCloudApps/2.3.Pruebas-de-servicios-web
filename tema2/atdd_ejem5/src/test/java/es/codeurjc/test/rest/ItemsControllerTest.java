@@ -19,7 +19,7 @@ class ItemsControllerTest {
 
     @Karate.Test
     public Karate testSample() {
-        return new Karate().feature("items").relativeTo(getClass());
+        return Karate.run("items").relativeTo(getClass());
     }
 
 }

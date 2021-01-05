@@ -1,6 +1,6 @@
 package es.codeurjc.tablonanuncios.pages;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

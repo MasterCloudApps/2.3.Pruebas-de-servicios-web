@@ -3,5 +3,5 @@ function fn() {
 	var config = {
 			'targetUrlBase': 'http://127.0.0.1:' + port
     }; 
-    return config;
+	return config;
 }

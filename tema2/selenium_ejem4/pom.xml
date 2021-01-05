@@ -52,4 +52,15 @@
 		</dependency>
 	</dependencies>
 
+	<!-- If we do not add this, we cannot run the tests from terminal
+	https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
