@@ -66,7 +66,9 @@
 				name = "user1";
 			}
 
-			var websocket = new WebSocket("wss://"+location.hostname+":"+location.port+"/chat");
+			var wsProtocol = location.protocol == "https" ? "wss" : "ws";
+
+			var websocket = new WebSocket(wsProtocol +"://"+location.hostname+":"+location.port+"/chat");
 
 		 	websocket.onopen = function(ev) {
 				newSystemMessage('Connected to '+app);

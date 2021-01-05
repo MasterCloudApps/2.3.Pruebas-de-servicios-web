@@ -13,7 +13,7 @@ CMD [ "java", "-jar", "springboot-chat.jar" ]
 
 # BUILD  docker build -t maes95/webchat .
 # RUN_APP docker run -p 5000:5000 maes95/webchat
-# DEPOY:
+# DEPLOY:
 # - heroku login
 # - heroku container:login
 # - heroku container:push web
