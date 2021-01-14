@@ -9,7 +9,7 @@ public class AnunciosControllerTest {
 
     @Karate.Test
     public Karate testSample() {
-        return new Karate().feature("anuncios").relativeTo(getClass());
+        return Karate.run("anuncios").relativeTo(getClass());
     }
 
 }
