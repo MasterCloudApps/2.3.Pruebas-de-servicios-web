@@ -10,7 +10,6 @@ config:
         - "checked"
     ensure:
       p95: 5
-      maxErrorRate: 1
 scenarios:
     - flow:
         - post:
