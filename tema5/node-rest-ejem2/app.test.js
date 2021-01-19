@@ -4,9 +4,9 @@ const supertest = require('supertest')
 const request = supertest(app)
 var db = require('./db');
 
-afterAll(async () => {
-    await db.connection.close()
-});
+// afterAll(async () => {
+//     await db.connection.close()
+// });
 
 test('Create new ad', async () => {
 
