@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
-var Anuncio = require('./Anuncio');
+var Anuncio = require('../model/Anuncio');
 
 // CREATES A NEW AD
 router.post('/', (req, res) => {

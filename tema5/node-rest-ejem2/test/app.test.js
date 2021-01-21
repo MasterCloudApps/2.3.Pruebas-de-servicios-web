@@ -1,11 +1,15 @@
-const app = require('./server')
+const app = require('../src/app')
 const supertest = require('supertest')
-
-var Anuncio = require('./anuncio/Anuncio')
-
-jest.mock('./anuncio/Anuncio');
-
+const mongoose = require('mongoose');
 const request = supertest(app)
+
+beforeAll( async ()=>{
+    await mongoose.connect('mongodb://localhost:27017');
+})
+
+afterAll(async () => {
+    await mongoose.connection.close()
+});
 
 test('Create new ad', async () => {
 
@@ -15,14 +19,10 @@ test('Create new ad', async () => {
         "author":"Michel"
     }
 
-    Anuncio.create.mockImplementation((ad, cb) => cb(null, ad));
-
     const response = await request.post('/anuncios/')
         .send(ad)      
         .expect('Content-type', /json/)
         .expect(201)
 
     expect(response.body.author).toBe("Michel")
-    expect(Anuncio.create).toHaveBeenCalledTimes(1)
-
 })

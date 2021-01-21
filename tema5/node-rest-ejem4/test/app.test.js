@@ -1,6 +1,6 @@
-const app = require('./server');
+const app = require('../src/app');
 const supertest = require('supertest');
-const db = require('mongoose');
+const mongoose = require('mongoose');
 const { GenericContainer } = require("testcontainers");
 
 const request = supertest(app)
@@ -12,11 +12,11 @@ beforeAll(async () => {
       .withExposedPorts(27017)
       .start();
 
-    await db.connect('mongodb://localhost:'+mongoContainer.getMappedPort(27017));
+    await mongoose.connect('mongodb://localhost:'+mongoContainer.getMappedPort(27017));
 });
 
 afterAll(async () => {
-    await db.connection.close()
+    await mongoose.connection.close()
     await mongoContainer.stop();
 });
 
