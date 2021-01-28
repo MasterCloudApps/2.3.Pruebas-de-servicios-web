@@ -3,7 +3,7 @@ config:
       expect: {}
     target: "http://127.0.0.1:8080"
     phases:
-      - duration: 5
+      - duration: 1
         arrivalRate: 1
     payload:
       path: "items.csv"

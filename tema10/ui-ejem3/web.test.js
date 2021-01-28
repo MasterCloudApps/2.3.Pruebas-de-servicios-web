@@ -1,4 +1,4 @@
-const { Builder, By, Key, until } = require('selenium-webdriver');
+const { Builder, By } = require('selenium-webdriver');
 
 let driver;
 
@@ -15,7 +15,7 @@ afterEach(async () => {
 test('Ad is created and shown', async () => {
 
     //Given
-    await driver.get("http://localhost:" + this.port + "/");
+    await driver.get("http://localhost:8080/");
 
     //When
     var newTitle = "MessageTitle";
