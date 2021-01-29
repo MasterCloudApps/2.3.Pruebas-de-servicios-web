@@ -46,8 +46,8 @@ public class AnuncioTest {
 		
 		driver.findElement(By.linkText("Nuevo anuncio")).click();
 		
-		driver.findElement(By.name("nombre")).sendKeys("Anuncio nuevo con Selenium");
-		driver.findElement(By.name("asunto")).sendKeys("Vendo moto");
+		driver.findElement(By.name("nombre")).sendKeys("Michel");
+		driver.findElement(By.name("asunto")).sendKeys("Vendo moto Selenium");
 		driver.findElement(By.name("comentario")).sendKeys("Un comentario muy largo...");
 		
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
