@@ -21,10 +21,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: jest-ejem1
-            file: calculadora1.test.js
-          - name: jest-ejem1
-            file: calculadora2.test.js
+          - folder: jest-ejem1
+            test: calculadora1.test.js
+          - folder: jest-ejem1
+            test: calculadora2.test.js
 
     steps:
       - uses: actions/checkout@v2
@@ -32,7 +32,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: Install ${{ matrix.name }}/${{ matrix.file }}
-        run: npm install --prefix tema3/${{ matrix.name }}/ -t ${{ matrix.file }}
-      - name: Run tests ${{ matrix.name }}/${{ matrix.file }}
-        run: npm test --prefix tema3/${{ matrix.name }}/ -t ${{ matrix.file }}
+      - name: Run Jest
+        uses: ./.github/actions/jest/
+        with:
+          folder: ${{ matrix.folder }}
+          test: ${{ matrix.test }}

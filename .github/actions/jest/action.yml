@@ -1,0 +1,19 @@
+name: 'Jest action'
+description: 'Install modules and run tests'
+inputs:
+  folder:  
+      description: 'Folder of the test'
+      required: true
+  test:  
+    description: 'Testfile'
+    required: false
+    default: ''
+runs:
+  using: "composite"
+  steps: 
+    - name: Install ${{ inputs.folder }}/${{ inputs.test }}
+      run: npm install --prefix tema3/${{ inputs.folder }}/ 
+      shell: bash
+    - name: Run tests ${{ inputs.folder }}/${{ inputs.test }}
+      run: npm test --prefix tema3/${{ inputs.folder }}/ -t ${{ inputs.test }}
+      shell: bash
