@@ -5,9 +5,15 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
+    paths:
+      - tema2/**
   pull_request:
-    branches: [ master ]
+    branches: 
+      - master
+    paths:
+      - tema2/**
 
 jobs:
 
