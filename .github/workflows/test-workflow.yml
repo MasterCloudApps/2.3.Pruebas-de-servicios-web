@@ -27,4 +27,20 @@ jobs:
           java-version: ${{ matrix.jdk }}
       - name: spring-test-ejem1
         run: mvn -B test --file tema2/spring-test-ejem1/pom.xml
+      - name: spring-test-ejem2
+        run: mvn -B test --file tema2/spring-test-ejem3/pom.xml
+      - name: spring-test-ejem3
+        run: mvn -B test --file tema2/spring-test-ejem3/pom.xml
+      - name: spring-test-ejer1_solucion
+        run: mvn -B test --file tema2/spring-test-ejer1_solucion/pom.xml
+      - name: spring-test-ejer2_solucion
+        run: mvn -B test --file tema2/spring-test-ejer2_solucion/pom.xml
+      - name: spring-test-ejer3_solucion
+        run: mvn -B test --file tema2/spring-test-ejer3_solucion/pom.xml
+      - name: test-containers-ejem1
+        run: mvn -B test --file tema2/test-containers-ejem1/pom.xml
+      - name: test-containers-ejem2
+        run: mvn -B test --file tema2/test-containers-ejem2/pom.xml
+      - name: test-containers-ejem3
+        run: mvn -B test --file tema2/test-containers-ejem3/pom.xml
 

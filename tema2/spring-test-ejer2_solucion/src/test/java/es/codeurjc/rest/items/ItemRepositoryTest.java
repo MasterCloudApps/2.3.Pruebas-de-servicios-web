@@ -23,7 +23,7 @@ public class ItemRepositoryTest {
 
 		ItemsRepository itemsRepository = new ItemsRepository();
 
-		Item item = itemsRepository.getItem(new Long(1));
+		Item item = itemsRepository.getItem(Long.valueOf(1));
 		
 		assertThat(item.getDescription()).isEqualTo("Leche");
 	}
@@ -55,7 +55,7 @@ public class ItemRepositoryTest {
 		item.setDescription(itemDescription);
 		item.setChecked(itemCheked);
 
-		Item putItem = itemsRepository.putItem(new Long(1),item);
+		Item putItem = itemsRepository.putItem(Long.valueOf(1),item);
 		
 		assertThat(putItem.getDescription()).isEqualTo(itemDescription);
 	}
@@ -65,7 +65,7 @@ public class ItemRepositoryTest {
 
 		ItemsRepository itemsRepository = new ItemsRepository();
 
-		itemsRepository.removeItem(new Long(1));
+		itemsRepository.removeItem(Long.valueOf(1));
 		
 		Collection<Item> items = itemsRepository.getAllItems();
 		
