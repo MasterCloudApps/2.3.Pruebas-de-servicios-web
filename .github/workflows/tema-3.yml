@@ -22,9 +22,32 @@ jobs:
       matrix:
         include:
           - folder: jest-ejem1
-            test: calculadora1.test.js
+            test: calculadora1
           - folder: jest-ejem1
-            test: calculadora2.test.js
+            test: calculadora2
+          - folder: jest-ejem3
+            test: test.js
+          - folder: jest-ejem6
+            test: 'gestorNotas'
+          - folder: jest-ejem7
+            test: test.js
+          - folder: jest-ejem8
+            test: 'gestorNotas'
+          - folder: jest-ejer1
+            test: test.js
+          - folder: jest-ejer2
+            test: test.js
+          - folder: jest-ejer3
+            test: test.js
+          - folder: jest-ejer4
+            test: test.js
+          - folder: jest-ejer5
+            test: test.js
+          - folder: jest-ejer6
+            test: test.js
+          - folder: jest-ejer7
+            test: test.js
+          
 
     steps:
       - uses: actions/checkout@v2

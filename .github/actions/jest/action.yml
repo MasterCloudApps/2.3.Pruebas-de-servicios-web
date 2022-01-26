@@ -7,13 +7,19 @@ inputs:
   test:  
     description: 'Testfile'
     required: false
-    default: ''
+    default: 'test.js'
 runs:
   using: "composite"
   steps: 
     - name: Install ${{ inputs.folder }}/${{ inputs.test }}
-      run: npm install --prefix tema3/${{ inputs.folder }}/ 
+      run: |
+        echo "::group::npm install"
+        npm install --prefix tema3/${{ inputs.folder }}/ 
+        echo "::endgroup::"
       shell: bash
     - name: Run tests ${{ inputs.folder }}/${{ inputs.test }}
-      run: npm test --prefix tema3/${{ inputs.folder }}/ -t ${{ inputs.test }}
+      run: |
+        echo "::group::npm test"
+        npm test --prefix tema3/${{ inputs.folder }}/ -t ${{ inputs.test }}
+        echo "::endgroup::"
       shell: bash

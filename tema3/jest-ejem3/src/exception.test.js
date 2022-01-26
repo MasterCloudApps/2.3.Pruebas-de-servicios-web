@@ -1,5 +1,5 @@
 function doSomething() {
-    throw new Error("error");
+    throw new Error("My error");
 }
 
 test('Exception Error should be thrown', () => {
@@ -12,12 +12,12 @@ test('Exception Error should be thrown', () => {
 
 });
 
-test('Exception Error with "error_message" should be thrown', () => {
+test('Exception Error with "My error" should be thrown', () => {
 
     expect(() => {
 
         doSomething();
 
-    }).toThrowError('error_message');
+    }).toThrowError('My error');
 
 });
