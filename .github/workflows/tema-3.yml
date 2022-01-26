@@ -33,19 +33,19 @@ jobs:
             test: test.js
           - folder: jest-ejem8
             test: 'gestorNotas'
-          - folder: jest-ejer1
+          - folder: jest-ejer1-sol
             test: test.js
-          - folder: jest-ejer2
+          - folder: jest-ejer2-sol
             test: test.js
-          - folder: jest-ejer3
+          - folder: jest-ejer3-sol
             test: test.js
-          - folder: jest-ejer4
+          - folder: jest-ejer4-sol
             test: test.js
-          - folder: jest-ejer5
+          - folder: jest-ejer5-sol
             test: test.js
-          - folder: jest-ejer6
+          - folder: jest-ejer6-sol
             test: test.js
-          - folder: jest-ejer7
+          - folder: jest-ejer7-sol
             test: test.js
           
 
