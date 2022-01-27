@@ -2,7 +2,6 @@ version: "3"
 
 services:
   postgres:
-    container_name: postgres
     image: postgres
     healthcheck:
       test: psql postgres --command "select 1" -U postgres
@@ -15,8 +14,7 @@ services:
     networks:
       - pact_example
 
-  pactbroker:
-    container_name: pactbroker
+  broker_app:
     image: pactfoundation/pact-broker
     links:
       - postgres
@@ -29,20 +27,8 @@ services:
       PACT_BROKER_DATABASE_PASSWORD: password
       PACT_BROKER_DATABASE_HOST: postgres
       PACT_BROKER_DATABASE_NAME: postgres
-      PACT_BROKER_WEBHOOK_SCHEME_WHITELIST: http
-      PACT_BROKER_WEBHOOK_HOST_WHITELIST: jenkins host.docker.internal
     depends_on:
       - postgres
-    networks:
-      - pact_example
-
-  jenkins:
-    container_name: jenkins
-    image: jenkins/jenkins
-    ports:
-      - "8080:8080"
-    volumes:
-      - ~/Jenkins/jenkins_home:/var/jenkins_home
     networks:
       - pact_example
 
