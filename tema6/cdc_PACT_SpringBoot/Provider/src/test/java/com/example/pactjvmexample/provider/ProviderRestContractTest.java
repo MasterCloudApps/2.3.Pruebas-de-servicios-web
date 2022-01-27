@@ -31,8 +31,8 @@ import static org.mockito.Mockito.when;
 
 @Provider("student-provider")
 @Consumer("student-consumer-rest")
-//@PactBroker(url = "http://pactbroker:9292", authentication = @PactBrokerAuth(username = "pact_workshop", password = "pact_workshop"))
-@PactFolder( "./Pacts")
+@PactBroker(url = "http://localhost:9292", authentication = @PactBrokerAuth(username = "pact_workshop", password = "pact_workshop"))
+//@PactFolder( "./Pacts")
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 class ProviderRestContractTest {

@@ -27,7 +27,7 @@
                 <artifactId>maven</artifactId>
                 <version>${pact.version}</version>
                 <configuration>
-                    <pactBrokerUrl>http://pactbroker:9292</pactBrokerUrl>
+                    <pactBrokerUrl>http://localhost:9292</pactBrokerUrl>
                     <pactBrokerUsername>pact_workshop</pactBrokerUsername>
                     <pactBrokerPassword>pact_workshop</pactBrokerPassword>
                     <tags>
