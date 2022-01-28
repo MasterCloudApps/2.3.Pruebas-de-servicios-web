@@ -1,7 +1,8 @@
-var express = require('express');
+import express from 'express';
+import AnuncioController from './controller/AnuncioController';
+
 var app = express();
 
-var AnuncioController = require('./controller/AnuncioController');
 app.use('/anuncios', AnuncioController);
 
-module.exports = app;
+export default app;

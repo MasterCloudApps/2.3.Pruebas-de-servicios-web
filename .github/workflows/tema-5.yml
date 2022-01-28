@@ -1,0 +1,45 @@
+name: Tema 3 CI
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - tema5/**
+  pull_request:
+    branches: 
+      - master
+    paths:
+      - tema5/**
+
+jobs:
+
+  tema-3:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - folder: node-rest-ejem1
+            test: test.js
+          - folder: node-rest-ejem3
+            test: test.js
+          - folder: node-rest-ejem4
+            test: test.js
+          - folder: node-rest-ejer1-solucion
+            test: app.rest.test
+          - folder: node-rest-ejer1-solucion
+            test: app.unitary.test
+      
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Run Jest
+        uses: ./.github/actions/jest/
+        with:
+          folder: ${{ matrix.folder }}
+          test: ${{ matrix.test }}

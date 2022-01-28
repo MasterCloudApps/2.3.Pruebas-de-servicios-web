@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 
 const app = express();
 
@@ -6,14 +6,14 @@ const app = express();
 app.use(express.json());
 
 app.get('/ads', (req, res) => {
-    
+
     var sampleAds = [
         { id: 0, message: "Vendo moto", author: "Pepe" },
         { id: 1, message: "Compro TV", author: "Juan" },
         { id: 2, message: "Cambio manta", author: "Julián" }
     ];
-    
-    res.json(sampleAds);    
+
+    res.json(sampleAds);
 });
 
-module.exports = app;
+export default app;

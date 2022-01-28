@@ -1,5 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+import express from "express";
+import bodyParser from "body-parser";
+import routes from "./routes/customer.routes.js"
 
 const app = express();
 
@@ -9,6 +10,6 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require("./routes/customer.routes.js")(app);
+routes(app);
 
-module.exports = app;
+export default app;

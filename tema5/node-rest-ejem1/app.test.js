@@ -1,9 +1,9 @@
-const app = require('./app')
-const supertest = require('supertest')
+import app from './app.js';
+import supertest from 'supertest';
 
 const request = supertest(app)
 
-test('gets the ads endpoint', async () => {
+test('gets the ads endpoint', async() => {
 
     const response = await request.get('/ads')
         .expect('Content-type', /json/)

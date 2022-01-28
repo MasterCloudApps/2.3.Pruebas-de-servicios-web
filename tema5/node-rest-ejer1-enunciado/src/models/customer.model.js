@@ -1,12 +1,11 @@
-const { db } = require("../db/db");
-const { Model, DataTypes } = require('sequelize');
+import db from "../db/db.js";
+import pkg from 'sequelize';
+const { Model, DataTypes } = pkg;
 
-class Customer extends Model {}
+export default class Customer extends Model {}
 
 Customer.init({
     email: DataTypes.STRING,
     name: DataTypes.STRING,
     active: DataTypes.BOOLEAN
-},{ sequelize: db, modelName: 'customers'})
-
-module.exports = Customer;
+}, { sequelize: db, modelName: 'customers' })

@@ -1,24 +1,23 @@
-const app = require('../src/app')
-const supertest = require('supertest')
-
-const Anuncio = require('../src/model/Anuncio')
+import app from '../src/app';
+import supertest from 'supertest';
+import Anuncio from '../src/model/Anuncio';
 
 jest.mock('../src/model/Anuncio');
 
 const request = supertest(app)
 
-test('Create new ad', async () => {
+test('Create new ad', async() => {
 
     let ad = {
-        "title": "Vendo coche", 
-        "content": "Vendo Opel Corsa - test", 
-        "author":"Michel"
+        "title": "Vendo coche",
+        "content": "Vendo Opel Corsa - test",
+        "author": "Michel"
     }
 
     Anuncio.create.mockImplementation((ad, cb) => cb(null, ad));
 
     const response = await request.post('/anuncios/')
-        .send(ad)      
+        .send(ad)
         .expect('Content-type', /json/)
         .expect(201)
 

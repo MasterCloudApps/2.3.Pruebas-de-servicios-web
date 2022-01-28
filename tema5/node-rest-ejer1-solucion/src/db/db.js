@@ -1,11 +1,11 @@
-const dbConfig = require("../config/db.config.js");
+import dbConfig from "../config/db.config.js";
 
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
 const db = new Sequelize('test', dbConfig.USER, dbConfig.PASSWORD, {
-  dialect: 'mysql',
-  port: process.env.MYSQL_PORT || dbConfig.MYSQL_PORT,
-  logging: false
+    dialect: 'mysql',
+    port: process.env.MYSQL_PORT || dbConfig.MYSQL_PORT,
+    logging: false
 })
 
-module.exports = { db };
+export default db;

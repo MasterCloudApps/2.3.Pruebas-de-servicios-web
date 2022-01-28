@@ -1,19 +1,20 @@
-module.exports = app => {
-  const customers = require("../controllers/customer.controller.js");
+import { create, findAll, findOne, update, destroy } from "../controllers/customer.controller.js";
 
-  // Create a new Customer
-  app.post("/api/customers", customers.create);
+export default (app) => {
 
-  // Retrieve all Customers
-  app.get("/api/customers", customers.findAll);
+    // Create a new Customer
+    app.post("/api/customers", create);
 
-  // Retrieve a single Customer with customerId
-  app.get("/api/customers/:customerId", customers.findOne);
+    // Retrieve all Customers
+    app.get("/api/customers", findAll);
 
-  // Update a Customer with customerId
-  app.put("/api/customers/:customerId", customers.update);
+    // Retrieve a single Customer with customerId
+    app.get("/api/customers/:customerId", findOne);
 
-  // Delete a Customer with customerId
-  app.delete("/api/customers/:customerId", customers.delete);
+    // Update a Customer with customerId
+    app.put("/api/customers/:customerId", update);
+
+    // Delete a Customer with customerId
+    app.delete("/api/customers/:customerId", destroy);
 
 };
