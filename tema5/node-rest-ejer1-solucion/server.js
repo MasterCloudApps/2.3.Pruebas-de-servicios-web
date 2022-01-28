@@ -8,5 +8,5 @@ app.listen(PORT, async() => {
     await db.sync({ force: true }).catch(err => {
         console.log(err)
     })
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}.`);
 });
