@@ -56,5 +56,5 @@ jobs:
       - name: Run Jest
         uses: ./.github/actions/jest/
         with:
-          folder: ${{ matrix.folder }}
+          folder: tema3/${{ matrix.folder }}
           test: ${{ matrix.test }}

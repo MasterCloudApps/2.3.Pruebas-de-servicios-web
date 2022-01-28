@@ -20,6 +20,6 @@ runs:
     - name: Run tests ${{ inputs.folder }}/${{ inputs.test }}
       run: |
         echo "::group::npm test"
-        npm test --prefix tema3/${{ inputs.folder }}/ -t ${{ inputs.test }}
+        npm test --prefix ${{ inputs.folder }}/ -t ${{ inputs.test }}
         echo "::endgroup::"
       shell: bash

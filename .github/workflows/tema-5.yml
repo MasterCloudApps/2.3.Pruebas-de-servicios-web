@@ -1,4 +1,4 @@
-name: Tema 3 CI
+name: Tema 5 CI
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
 
 jobs:
 
-  tema-3:
+  tema-5:
 
     runs-on: ubuntu-latest
     strategy:
@@ -41,5 +41,5 @@ jobs:
       - name: Run Jest
         uses: ./.github/actions/jest/
         with:
-          folder: ${{ matrix.folder }}
+          folder: tema5/${{ matrix.folder }}
           test: ${{ matrix.test }}
