@@ -14,7 +14,7 @@ runs:
     - name: Install ${{ inputs.folder }}/${{ inputs.test }}
       run: |
         echo "::group::npm install"
-        npm install --prefix tema3/${{ inputs.folder }}/ 
+        npm install --prefix ${{ inputs.folder }}/ 
         echo "::endgroup::"
       shell: bash
     - name: Run tests ${{ inputs.folder }}/${{ inputs.test }}
