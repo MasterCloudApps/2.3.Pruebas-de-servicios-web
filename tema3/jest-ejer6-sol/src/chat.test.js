@@ -1,4 +1,4 @@
-const Chat = require('./chat');
+import Chat from './chat';
 
 test('User is notified when new user is added to chat', () => {
 
@@ -85,8 +85,8 @@ test('Try to add user not allowed by mediaServer', () => {
 
     let chat = new Chat("Test", mediaServer);
 
-    expect(() => { 
-        chat.addUser({}) 
+    expect(() => {
+        chat.addUser({})
     }).toThrowError('MediaServer does not allow more users');
 
     expect(mediaServer.allowMoreUsers).toBeCalled();
@@ -109,8 +109,8 @@ test('Add first user allowed by mediaServer and 2nd one not allowed', () => {
 
     mediaServer.allowMoreUsers.mockClear();
 
-    expect(() => { 
-        chat.addUser({}) 
+    expect(() => {
+        chat.addUser({})
     }).toThrowError('MediaServer does not allow more users');
 
     expect(mediaServer.allowMoreUsers).toBeCalled();

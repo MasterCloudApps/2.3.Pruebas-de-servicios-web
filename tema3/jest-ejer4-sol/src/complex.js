@@ -1,4 +1,4 @@
-module.exports = class Complex {
+export default class Complex {
 
     constructor(realPart, imaginaryPart) {
         this.realPart = realPart;
@@ -30,11 +30,11 @@ module.exports = class Complex {
     reciprocal() {
         let scale = Math.pow(this.realPart, 2.0) + Math.pow(this.imaginaryPart, 2.0);
 
-        if(scale === 0){
+        if (scale === 0) {
             throw new Error('division by zero');
         } else {
             return new Complex(this.realPart / scale, this.imaginaryPart / scale);
-        }       
+        }
     }
 
     // return a new Complex object whose value is (this + complex)
@@ -56,10 +56,10 @@ module.exports = class Complex {
 
     // return a new Complex object whose value is (this * complex)
     times(complex) {
-        let newRealPart = (this.realPart * complex.realPart)
-            - (this.imaginaryPart * complex.imaginaryPart);
-        let newImaginaryPart = (this.realPart * complex.imaginaryPart)
-            - (this.imaginaryPart * complex.realPart);
+        let newRealPart = (this.realPart * complex.realPart) -
+            (this.imaginaryPart * complex.imaginaryPart);
+        let newImaginaryPart = (this.realPart * complex.imaginaryPart) -
+            (this.imaginaryPart * complex.realPart);
 
         return new Complex(newRealPart, newImaginaryPart);
     }

@@ -1,6 +1,5 @@
-const BDAlumnos = require('./bDAlumnos');
-
-module.exports = class GestorNotas {
+import BDAlumnos from './bDAlumnos';
+export default class GestorNotas {
 
     constructor() {
         this.alumnos = new BDAlumnos();

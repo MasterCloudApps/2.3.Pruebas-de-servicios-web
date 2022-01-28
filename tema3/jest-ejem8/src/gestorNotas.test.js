@@ -1,5 +1,5 @@
-const DBAlumnos = require('./bDAlumnos');
-const GestorNotas = require('./gestorNotas');
+import BDAlumnos from './bDAlumnos';
+import GestorNotas from './gestorNotas';
 
 jest.mock('./bDAlumnos');
 
@@ -9,12 +9,12 @@ test('Cálculo nota media', () => {
 
     let mockAlumnos = { getNotasAlumno }
 
-    DBAlumnos.mockImplementation(() => mockAlumnos);
+    BDAlumnos.mockImplementation(() => mockAlumnos);
 
     let gestorNotas = new GestorNotas();
 
     expect(gestorNotas.calculaNotaMedia(1)).toBeCloseTo(7);
 
-    expect(mockAlumnos.getNotasAlumno).toBeCalledWith(1);   
+    expect(mockAlumnos.getNotasAlumno).toBeCalledWith(1);
 
 });

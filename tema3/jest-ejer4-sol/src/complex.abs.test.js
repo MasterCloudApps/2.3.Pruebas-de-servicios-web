@@ -1,4 +1,4 @@
-const Complex = require('./complex');
+import Complex from './complex';
 
 test.each([
     [new Complex(0, 0), 0],
@@ -8,7 +8,7 @@ test.each([
     [new Complex(10, 10), 14.1421],
     [new Complex(10, 1), 10.0498],
     [new Complex(20, 2), 20.09]
-])('Complex(%s).abs() === %i',(complex, absolute) => {
+])('Complex(%s).abs() === %i', (complex, absolute) => {
 
-    expect(complex.abs()).toBeCloseTo(absolute,1);
+    expect(complex.abs()).toBeCloseTo(absolute, 1);
 })

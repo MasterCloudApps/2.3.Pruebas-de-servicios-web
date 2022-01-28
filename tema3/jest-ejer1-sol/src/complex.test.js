@@ -1,4 +1,4 @@
-const Complex = require('./complex');
+import Complex from './complex';
 
 test('given Zero then RealPart = Zero and ImagPart = Zero', () => {
 

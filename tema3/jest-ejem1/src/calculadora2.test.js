@@ -1,4 +1,4 @@
-const Calculadora = require('./calculadora');
+import Calculadora from './calculadora';
 
 // Arrange / Given
 let calculadora;

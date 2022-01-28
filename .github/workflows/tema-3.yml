@@ -45,8 +45,6 @@ jobs:
             test: test.js
           - folder: jest-ejer6-sol
             test: test.js
-          - folder: jest-ejer7-sol
-            test: test.js
           
 
     steps:

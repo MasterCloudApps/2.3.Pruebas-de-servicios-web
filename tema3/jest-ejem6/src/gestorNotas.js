@@ -1,4 +1,4 @@
-module.exports = class GestorNotas {
+export default class GestorNotas {
 
     constructor(alumnos) {
         this.alumnos = alumnos;

@@ -3,12 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "test": "jest"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.16.8",
         "jest": "27.4.7"
     }
 }

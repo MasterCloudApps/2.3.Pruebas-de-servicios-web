@@ -1,8 +1,8 @@
-const Complex = require('./complex');
+import Complex from './complex';
 
 let zero;
 
-beforeEach(()=>{
+beforeEach(() => {
     zero = new Complex(0, 0);
 })
 

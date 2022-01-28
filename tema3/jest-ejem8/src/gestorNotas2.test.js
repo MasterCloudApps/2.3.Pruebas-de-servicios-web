@@ -1,11 +1,11 @@
-const DBAlumnos = require('./bDAlumnos');
-const GestorNotas = require('./gestorNotas');
+import BDAlumnos from './bDAlumnos';
+import GestorNotas from './gestorNotas';
 
 jest.mock('./bDAlumnos');
 
 test('Cálculo nota media', () => {
 
-    DBAlumnos.mockImplementation(() =>
+    BDAlumnos.mockImplementation(() =>
         ({ getNotasAlumno: jest.fn().mockReturnValue([5, 6, 8, 9]) })
     );
 
@@ -14,7 +14,7 @@ test('Cálculo nota media', () => {
 
     expect(gestorNotas.calculaNotaMedia(1)).toBeCloseTo(7);
 
-    expect(DBAlumnos.mock.results[0].value.getNotasAlumno).toBeCalledWith(1);
-    expect(DBAlumnos.mock.results[1].value.getNotasAlumno).not.toBeCalled();
+    expect(BDAlumnos.mock.results[0].value.getNotasAlumno).toBeCalledWith(1);
+    expect(BDAlumnos.mock.results[1].value.getNotasAlumno).not.toBeCalled();
 
 });

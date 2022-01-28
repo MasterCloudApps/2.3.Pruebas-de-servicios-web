@@ -1,4 +1,4 @@
-module.exports = class Chat {
+export default class Chat {
 
     constructor(name) {
         this.name = name;
@@ -27,4 +27,3 @@ module.exports = class Chat {
         }
     }
 }
-

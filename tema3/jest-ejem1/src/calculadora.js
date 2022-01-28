@@ -1,4 +1,4 @@
-module.exports = class Calculadora {
+export default class Calculadora {
 
     suma(op1, op2) {
         return op1 + op2;

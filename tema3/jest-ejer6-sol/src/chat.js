@@ -1,4 +1,4 @@
-module.exports = class Chat {
+export default class Chat {
 
     constructor(name, mediaServer) {
         this.name = name;
@@ -38,4 +38,3 @@ module.exports = class Chat {
         }
     }
 }
-

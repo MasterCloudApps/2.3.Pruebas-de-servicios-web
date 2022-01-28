@@ -1,4 +1,4 @@
-const Chat = require('./chat');
+import Chat from './chat';
 
 test('User is notified when new user is added to chat', () => {
 
@@ -24,7 +24,7 @@ test('User is notified when existing user exists from chat', () => {
         name: 'Pepe',
         newUserInChat: jest.fn()
     }
-    
+
     let user2 = {
         userExitedFromChat: jest.fn(),
         newUserInChat: jest.fn()
