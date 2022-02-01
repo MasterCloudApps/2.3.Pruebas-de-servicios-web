@@ -5,12 +5,12 @@ on:
     branches: 
       - master
     paths:
-      - tema5/**
+      - tema6/**
   pull_request:
     branches: 
       - master
     paths:
-      - tema5/**
+      - tema6/**
 
 jobs:
 
