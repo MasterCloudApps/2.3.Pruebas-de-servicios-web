@@ -1,7 +1,7 @@
 import app from './src/app';
-var port = process.env.PORT || 3000;
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
+var port = process.env.PORT || 3000;
 // Connect
 mongoose.connect('mongodb://localhost:27017');
 

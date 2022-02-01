@@ -1,4 +1,4 @@
-name: Tema 5 CI
+name: Tema 6 CI
 
 on:
   push:
@@ -41,5 +41,5 @@ jobs:
       - name: Run Jest
         uses: ./.github/actions/jest/
         with:
-          folder: tema5/${{ matrix.folder }}
+          folder: tema6/${{ matrix.folder }}
           test: ${{ matrix.test }}
