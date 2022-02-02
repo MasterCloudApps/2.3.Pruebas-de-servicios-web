@@ -1,4 +1,4 @@
-Feature: items_end-point
+Feature: Items end-point
 
     Background:
     * url 'http://localhost:8080'

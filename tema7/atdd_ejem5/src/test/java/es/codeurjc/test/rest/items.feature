@@ -1,4 +1,4 @@
-Feature: items end-point
+Feature: Items end-point
 
     Background:
     * url targetUrlBase
