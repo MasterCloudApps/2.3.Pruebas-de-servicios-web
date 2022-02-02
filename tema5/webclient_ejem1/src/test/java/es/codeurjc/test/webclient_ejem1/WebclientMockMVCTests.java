@@ -38,7 +38,7 @@ public class WebclientMockMVCTests {
     }
 
     @Test
-	public void MOCK_getAllItemsTest() throws InterruptedException {
+	public void MOCK_getJavaBooksTest() throws InterruptedException {
 		this.webTestClient
 			.get()
 				.uri("/booktitles?title=Java")

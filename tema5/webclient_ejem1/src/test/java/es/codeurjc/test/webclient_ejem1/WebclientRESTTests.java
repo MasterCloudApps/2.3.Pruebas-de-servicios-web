@@ -14,7 +14,7 @@ class WebclientRESTTests {
 	private WebTestClient webTestClient;
 
 	@Test
-	public void REST_getAllItemsTest() throws InterruptedException {
+	public void REST_getJavaBooksTest() throws InterruptedException {
 		this.webTestClient
 			.get()
 				.uri("/booktitles?title=Java")
