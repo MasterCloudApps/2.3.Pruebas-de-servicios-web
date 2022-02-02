@@ -12,7 +12,7 @@ Feature: anuncios end-point
         * def anuncio = { nombre: 'Juan', asunto: 'Vendo coche', comentario: "Vendo Fiat 500"}
         * def expected_response = { id: '#number', nombre: 'Juan', asunto: 'Vendo coche', comentario: "Vendo Fiat 500"}
 
-        Given path '/'
+        Given path ''
         And request anuncio
         When method post
         Then status 201
@@ -22,21 +22,21 @@ Feature: anuncios end-point
 
         * def id = response.id
 
-        Given path '/', id
+        Given path '', id
         When method get
         Then status 200
         And match response == expected_response
 
-        # BORRAMOS EL ANUNCIO
+        # # BORRAMOS EL ANUNCIO
 
-        Given path '/', id
+        Given path '', id
         When method delete
         Then status 200
         And match response == expected_response
 
         # COMPROBAMOS QUE SE HA BORRADO CORRECTAMENTE
 
-        Given path '/', id
+        Given path '', id
         When method get
         Then status 404
 

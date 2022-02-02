@@ -7,7 +7,7 @@ Feature: items end-point
 
     Scenario: create and retrieve a item
 
-        Given path 'items/'
+        Given path 'items', ''
         And request { description: 'Leche', checked: true }
         When method post
         Then status 201

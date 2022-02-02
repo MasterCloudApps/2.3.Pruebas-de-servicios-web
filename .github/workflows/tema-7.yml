@@ -1,0 +1,44 @@
+name: Tema 7 CI
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - tema7/**
+  pull_request:
+    branches: 
+      - master
+    paths:
+      - tema7/**
+
+jobs:
+
+  tema-2:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: [17]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.jdk }}
+      - name: atdd_ejem2
+        run: mvn -B test --file tema7/atdd_ejem2/pom.xml
+      - name: atdd_ejem3
+        run: mvn -B test --file tema7/atdd_ejem3/pom.xml
+      - name: atdd_ejem4
+        run: mvn -B test --file tema7/atdd_ejem4/pom.xml
+      - name: atdd_ejem5
+        run: mvn -B test --file tema7/atdd_ejem5/pom.xml
+      - name: atdd_ejer2
+        run: mvn -B test --file tema7/atdd_ejer2/pom.xml
+      - name: atdd_ejer3_solucion
+        run: mvn -B test --file tema7/atdd_ejer3_solucion/pom.xml
+
+
