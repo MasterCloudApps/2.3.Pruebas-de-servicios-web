@@ -11,6 +11,7 @@ on:
       - master
     paths:
       - tema7/**
+  workflow_dispatch:
 
 jobs:
 
