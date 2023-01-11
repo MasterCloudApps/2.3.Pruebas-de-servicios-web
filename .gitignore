@@ -33,3 +33,4 @@ target/
 
 .sts4-cache/
 package-lock.json
+bin/
