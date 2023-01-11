@@ -50,4 +50,8 @@ jobs:
         run: mvn -B test --file tema2/test-containers-ejem2/pom.xml
       - name: test-containers-ejem2A
         run: mvn -B test --file tema2/test-containers-ejem2A/pom.xml
+      - name: quarkus-test-ejem1
+        run: mvn -B test --file tema2/quarkus-test-ejem1/pom.xml
+      - name: quarkus-test-ejem2
+        run: mvn -B test --file tema2/quarkus-test-ejem2/pom.xml
 
