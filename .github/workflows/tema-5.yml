@@ -1,0 +1,47 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Tema 5 CI
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - tema5/**
+  pull_request:
+    branches: 
+      - master
+    paths:
+      - tema5/**
+  workflow_dispatch:
+
+jobs:
+
+  tema-2:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        jdk: [17]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.jdk }}
+      - name: books-rest-test-ejem1
+        run: mvn -B test --file tema5/books-rest-test-ejem1/pom.xml
+      - name: quarkus-rest-test_ejem1
+        run: mvn -B test --file tema5/quarkus-rest-test_ejem1/pom.xml
+      - name: spring-rest_test_ejem1
+        run: mvn -B test --file tema5/spring-rest_test_ejem1/pom.xml
+      - name: spring-rest_test_ejem2
+        run: mvn -B test --file tema5/spring-rest_test_ejem2/pom.xml
+      - name: spring-rest_test_ejer1
+        run: mvn -B test --file tema5/spring-rest_test_ejer1/pom.xml
+      - name: webclient_ejem1
+        run: mvn -B test --file tema5/webclient_ejem1/pom.xml
+
