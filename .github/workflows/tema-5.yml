@@ -36,12 +36,12 @@ jobs:
         run: mvn -B test --file tema5/books-rest-test-ejem1/pom.xml
       - name: quarkus-rest-test-ejem1
         run: mvn -B test --file tema5/quarkus-rest-test-ejem1/pom.xml
-      - name: spring-rest_test_ejem1
-        run: mvn -B test --file tema5/spring-rest_test_ejem1/pom.xml
-      - name: spring-rest_test_ejem2
-        run: mvn -B test --file tema5/spring-rest_test_ejem2/pom.xml
-      - name: spring-rest_test_ejer1
-        run: mvn -B test --file tema5/spring-rest_test_ejer1/pom.xml
-      - name: webclient_ejem1
-        run: mvn -B test --file tema5/webclient_ejem1/pom.xml
+      - name: spring-rest-test-ejem1
+        run: mvn -B test --file tema5/spring-rest-test-ejem1/pom.xml
+      - name: spring-rest-test-ejem2
+        run: mvn -B test --file tema5/spring-rest-test-ejem2/pom.xml
+      - name: spring-rest-test-ejer1
+        run: mvn -B test --file tema5/spring-rest-test-ejer1/pom.xml
+      - name: webclient-ejem1
+        run: mvn -B test --file tema5/webclient-ejem1/pom.xml
 

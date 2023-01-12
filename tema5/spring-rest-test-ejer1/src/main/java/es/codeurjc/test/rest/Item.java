@@ -7,6 +7,7 @@ public class Item {
 	private boolean checked;
 
 	public Item() {
+		
 	}
 
 	public long getId() {
