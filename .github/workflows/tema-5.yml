@@ -34,8 +34,8 @@ jobs:
           java-version: ${{ matrix.jdk }}
       - name: books-rest-test-ejem1
         run: mvn -B test --file tema5/books-rest-test-ejem1/pom.xml
-      - name: quarkus-rest-test_ejem1
-        run: mvn -B test --file tema5/quarkus-rest-test_ejem1/pom.xml
+      - name: quarkus-rest-test-ejem1
+        run: mvn -B test --file tema5/quarkus-rest-test-ejem1/pom.xml
       - name: spring-rest_test_ejem1
         run: mvn -B test --file tema5/spring-rest_test_ejem1/pom.xml
       - name: spring-rest_test_ejem2
