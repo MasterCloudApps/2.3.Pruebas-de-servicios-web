@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.codeurjc.test</groupId>
-	<artifactId>webclient_ejem1</artifactId>
+	<artifactId>webclient-ejem1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webclient_ejem1</name>
 	<description>Demo project for Spring Boot</description>
