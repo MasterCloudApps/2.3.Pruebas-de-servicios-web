@@ -1,35 +1,43 @@
 package es.codeurjc.test.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.testcontainers.Testcontainers.exposeHostPorts;
+import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL;
+
+import java.io.File;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.testcontainers.containers.BrowserWebDriverContainer;
+import org.testcontainers.containers.VncRecordingContainer.VncRecordingFormat;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
+@Testcontainers
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class WebAppTest {
 
 	@LocalServerPort
     int port;
 
-	private WebDriver driver;
+	@Container
+    public static BrowserWebDriverContainer<?> seleniumContainer = new BrowserWebDriverContainer<>()
+		.withAccessToHost(true)
+		.withRecordingMode(RECORD_ALL, new File("target"), VncRecordingFormat.MP4);
 
-	@BeforeAll
-	public static void setupClass() {
-		WebDriverManager.chromedriver().setup();
-	}
+	private RemoteWebDriver driver;
 
 	@BeforeEach
 	public void setupTest() {
-		driver = new ChromeDriver();
+		exposeHostPorts(port);
+		driver = new RemoteWebDriver(seleniumContainer.getSeleniumAddress(), new ChromeOptions());
 	}
 
 	@AfterEach
@@ -42,7 +50,7 @@ public class WebAppTest {
 	@Test
 	public void test() throws InterruptedException {
 		
-		driver.get("http://localhost:"+this.port+"/");
+		driver.get("http://host.testcontainers.internal:"+this.port+"/");
 
 		String newTitle = "MessageTitle";
 		String newBody = "MessageBody";

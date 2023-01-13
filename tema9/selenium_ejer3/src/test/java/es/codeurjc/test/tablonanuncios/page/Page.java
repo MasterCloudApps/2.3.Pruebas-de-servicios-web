@@ -1,5 +1,7 @@
 package es.codeurjc.test.tablonanuncios.page;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +15,7 @@ public abstract class Page {
     public Page(WebDriver driver, String baseUrl) {
         this.driver = driver;
         this.baseUrl = baseUrl;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
         PageFactory.initElements(driver, this);
     }

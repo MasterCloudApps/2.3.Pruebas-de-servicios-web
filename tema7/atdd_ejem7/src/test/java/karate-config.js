@@ -1,6 +1,4 @@
 function fn() {
-    var config = {
-        'targetUrlBase': karate.properties['base.url']
-    };
+    var config = { 'targetUrlBase': karate.properties['base.url'] };
     return config;
 }

@@ -1,34 +1,34 @@
 package es.codeurjc.test.web;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL;
+import org.testcontainers.containers.VncRecordingContainer.VncRecordingFormat;
+
+import java.io.File;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.containers.BrowserWebDriverContainer;
-import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL;
-
-import java.io.File;
 
 @Testcontainers
 public class WikipediaTest {
 
 	@Container
-    public static BrowserWebDriverContainer chrome = new BrowserWebDriverContainer()
-		.withCapabilities(DesiredCapabilities.chrome())
-		.withRecordingMode(RECORD_ALL, new File("target"));
+    public static BrowserWebDriverContainer<?> seleniumContainer = new BrowserWebDriverContainer<>()
+		.withRecordingMode(RECORD_ALL, new File("target"), VncRecordingFormat.MP4);
 
 	private RemoteWebDriver driver;
 
 	@BeforeEach
 	public void setupTest() {
-		driver = chrome.getWebDriver();
+		driver = new RemoteWebDriver(seleniumContainer.getSeleniumAddress(), new ChromeOptions());
 	}
 
 	@AfterEach
