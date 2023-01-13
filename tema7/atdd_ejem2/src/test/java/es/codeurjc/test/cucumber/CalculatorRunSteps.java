@@ -1,7 +1,7 @@
 package es.codeurjc.test.cucumber;
 
 import org.hamcrest.Matchers;
-import org.junit.Assert;
+import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Before;
 
 import io.cucumber.java.en.Given;
@@ -31,6 +31,6 @@ public class CalculatorRunSteps {
  
     @Then("^the result should be (-?\\d+)$")
     public void validateResult(int result) throws Throwable {
-        Assert.assertThat(total, Matchers.equalTo(result));
+        assertThat(total, Matchers.equalTo(result));
     }
 }

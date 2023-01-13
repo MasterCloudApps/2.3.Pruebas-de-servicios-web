@@ -4,7 +4,7 @@ import com.intuit.karate.junit5.Karate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ItemsControllerTest {
@@ -14,7 +14,7 @@ class ItemsControllerTest {
 
     @BeforeEach
     public void setPort(){
-        System.setProperty("demo.server.port", port+"");
+        System.setProperty("base.url", "http://localhost:" + port);
     }
 
     @Karate.Test

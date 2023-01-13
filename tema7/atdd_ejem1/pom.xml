@@ -12,19 +12,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
+		<cucumber.version>7.10.1</cucumber.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>6.9.1</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>6.9.1</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
