@@ -22,7 +22,7 @@ public abstract class Page {
     }
     
     public Page(Page page) {
-        this(page.driver, page.baseUrl);
+    	this(page.driver, page.baseUrl);
     }
     
     protected void get(String path) {

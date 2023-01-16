@@ -18,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class WebAppTest {
 
 	@LocalServerPort
-    int port;
+	int port;
 
 	private WebDriver driver;
 

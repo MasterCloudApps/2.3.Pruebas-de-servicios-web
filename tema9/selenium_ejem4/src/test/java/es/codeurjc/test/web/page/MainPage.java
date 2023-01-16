@@ -1,19 +1,13 @@
 package es.codeurjc.test.web.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class MainPage extends Page {
 
-	@FindBy(name = "search")
-	WebElement searchInput;
-	
 	public MainPage(WebDriver driver) {
 		super(driver);
-	       
-        PageFactory.initElements(driver, this);
 	}
 
 	public MainPage get() {
@@ -23,6 +17,8 @@ public class MainPage extends Page {
 	
 	public ArticlePage search(String searchText) {
 	
+		WebElement searchInput = driver.findElement(By.name("search"));
+
 		searchInput.sendKeys(searchText);
 		searchInput.submit();
 		
