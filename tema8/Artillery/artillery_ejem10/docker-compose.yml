@@ -1,0 +1,7 @@
+version: "3"
+services:
+  app:
+    image: maes95/webchat
+    restart: always
+    ports:
+      - "5000:5000"

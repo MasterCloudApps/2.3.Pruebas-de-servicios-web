@@ -1,15 +1,27 @@
 config:
-    plugins:
-      expect: {}
     target: "http://127.0.0.1:8080"
-    phases:
-      - duration: 1
-        arrivalRate: 1
-    payload:
-      path: "items.csv"
-      fields:
-        - "description"
-        - "checked"
+
+    environments:
+      load:
+        phases:
+          - duration: 20
+            arrivalRate: 10
+        payload:
+          path: "items.csv"
+          fields:
+            - "description"
+            - "checked"
+      functional:
+        plugins:
+          expect: {}
+        phases:
+          - duration: 1
+            arrivalRate: 1
+        variables:
+          description:
+            - "Leche"
+          checked:
+            - true
 scenarios:
     - flow:
         - post:

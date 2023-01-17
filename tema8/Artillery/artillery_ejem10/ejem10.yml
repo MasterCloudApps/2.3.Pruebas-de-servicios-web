@@ -1,15 +1,15 @@
 config:
   environments:
     production:
-      target: "wss://springboot-chat.herokuapp.com/chat"
+      target: "wss://web-chat.herokuapp.com/chat"
       phases:
         - duration: 30
-          arrivalRate: 4
+          arrivalRate: 15
     local:
       target: "ws://localhost:5000/chat"
       phases:
         - duration: 30
-          arrivalRate: 4
+          arrivalRate: 15
   payload:
     - path: "users.csv"
       fields:
@@ -19,13 +19,15 @@ config:
 scenarios:
   - engine: "ws"
     flow:
-      - send:
+      - send: # LogIn
           name: "{{ user }}"
           chat: "{{ room }}"
-      - think: 5
-      - loop:
+      - think: 1
+      - loop: # Send 100 messages
         - send: 
             message: "Hi everybody from {{ user }}"
+            chat: "{{ room }}"
         - think: 1
         count: 100
+      - think: 10 # Waiting for messages before close connection
     

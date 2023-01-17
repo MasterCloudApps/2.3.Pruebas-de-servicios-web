@@ -10,5 +10,5 @@ scenarios:
         - send: 
             message: "Hi everybody"
         - think: 1
-        count: 100
+        count: 10
     

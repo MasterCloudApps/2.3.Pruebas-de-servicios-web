@@ -1,11 +1,11 @@
-FROM maven:3.6-jdk-8 as builder
+FROM maven:3.8.7-eclipse-temurin-17 as builder
 COPY pom.xml /code/pom.xml
 WORKDIR /code
 RUN mvn dependency:go-offline
 COPY . /code/
 RUN mvn package
 
-FROM openjdk:8-jre
+FROM eclipse-temurin:17-jdk
 COPY --from=builder /code/target/*.jar /usr/app/springboot-chat.jar
 WORKDIR /usr/app
 EXPOSE 5000

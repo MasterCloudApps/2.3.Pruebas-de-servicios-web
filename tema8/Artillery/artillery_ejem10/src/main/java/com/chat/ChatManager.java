@@ -12,9 +12,12 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.json.JSONObject;
+import org.slf4j.Logger;
 
 @ServerEndpoint("/chat")
 public class ChatManager {
+
+    Logger logger = org.slf4j.LoggerFactory.getLogger(ChatManager.class);
 
     private static final Map<String, Map<String, User>> rooms = new ConcurrentHashMap<>();
     private static final String DUPLICATE_MSG = "{\"type\":\"system\",\"message\":\"Ya existe un usuario con ese nombre\"}";
@@ -24,19 +27,23 @@ public class ChatManager {
     @OnOpen
     public void open(Session session) {
         this.user = new User(session);
+        logger.info("New session opened: "+session.getId());
     }
 
     @OnMessage
     public void handleMessage(Session session, String message) throws IOException {
 
-        if(this.user.isValid()){
+        logger.info(message);
+
+        JSONObject jsonMessage = new JSONObject(message);        
+
+        if(!this.user.isValid() && !jsonMessage.optString("name").isEmpty()){
+            newUser(jsonMessage);
+        }else{
             // Broadcast message
-            System.out.println(message + "from user: "+user.getName());
-            rooms.get(user.getChat()).values().forEach( _user ->
+            rooms.get(jsonMessage.getString("chat")).values().forEach( _user ->
                 _user.send(message)
             );
-        }else{
-            newUser(message);
         }
 
     }
@@ -54,20 +61,19 @@ public class ChatManager {
             }
         }
 
-        System.out.println("Sesión cerrada");
+        logger.info("Sesión cerrada: "+this.user.getName());
 
     }
 
     @OnError
     public void onError(Session session, Throwable thr) {
 
-        System.err.println("Cliente "+session.getId()+" desconectado: "+thr);
+        logger.error("Cliente "+session.getId()+", error: "+thr.getMessage());
+        thr.printStackTrace();
 
     }
 
-    private void newUser(String message){
-
-        JSONObject jsonMessage = new JSONObject(message);
+    private void newUser(JSONObject jsonMessage){
 
         String chat = jsonMessage.getString("chat");
         String name = jsonMessage.getString("name");

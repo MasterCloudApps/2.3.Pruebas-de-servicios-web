@@ -25,6 +25,10 @@ public class User {
                     e.printStackTrace();
             }
 	}
+
+	public Session getSession(){
+		return this.session;
+	}
 	
 	public String getChat(){
 		return this.chat;

@@ -36,7 +36,7 @@ public class BookController {
 		log.info("Get book {}", id);
 		
 		if (repository.existsById(id)) {
-			Book book = repository.getOne(id);
+			Book book = repository.getById(id);
 			return new ResponseEntity<>(book, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
