@@ -2,7 +2,7 @@ package com.chat;
 
 import java.io.IOException;
 
-import javax.websocket.Session;
+import jakarta.websocket.Session;
 
 public class User {
 	private String name;

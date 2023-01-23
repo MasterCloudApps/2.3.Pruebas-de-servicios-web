@@ -13,4 +13,4 @@ config:
 scenarios:
     - flow:
         - get:
-            url: "/items"
+            url: "/items/"
