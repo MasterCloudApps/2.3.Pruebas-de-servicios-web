@@ -2,7 +2,7 @@ package es.codeurjc.anuncios;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,6 +37,6 @@ public class AnunciosController {
 
 	@GetMapping("/{id}")
 	public Anuncio verAnuncio(@PathVariable long id) {
-		return repository.getOne(id);
+		return repository.findById(id).orElseThrow();
 	}
 }
