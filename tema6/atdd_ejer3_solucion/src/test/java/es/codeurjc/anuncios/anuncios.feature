@@ -27,7 +27,7 @@ Feature: anuncios end-point
         Then status 200
         And match response == expected_response
 
-        # # BORRAMOS EL ANUNCIO
+        # BORRAMOS EL ANUNCIO
 
         Given path '', id
         When method delete

@@ -19,14 +19,14 @@ public class MessageControllerTest {
 
     @BeforeEach
     public void setPort() throws SocketException{
-        System.setProperty("base.url", "http://localhost:" + port);
-        // try (final DatagramSocket datagramSocket = new DatagramSocket()) {
-        //     datagramSocket.connect(InetAddress.getByName("8.8.8.8"), 12345);
-        //     String baseUrl = "http://" + datagramSocket.getLocalAddress().getHostAddress() + ":" + port;
-        //     System.setProperty("base.url", baseUrl);
-        // } catch (UnknownHostException e) {
-        //     e.printStackTrace();
-        // }
+        // System.setProperty("base.url", "http://localhost:" + port);
+        try (final DatagramSocket datagramSocket = new DatagramSocket()) {
+            datagramSocket.connect(InetAddress.getByName("8.8.8.8"), 12345);
+            String baseUrl = "http://" + datagramSocket.getLocalAddress().getHostAddress() + ":" + port;
+            System.setProperty("base.url", baseUrl);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 
     @Karate.Test
