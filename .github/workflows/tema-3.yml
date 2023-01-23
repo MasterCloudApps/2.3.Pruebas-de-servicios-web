@@ -1,24 +1,24 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Tema 5 CI
+name: Tema 3 - Testing E2E REST
 
 on:
   push:
     branches: 
       - master
     paths:
-      - tema5/**
+      - tema3/**
   pull_request:
     branches: 
       - master
     paths:
-      - tema5/**
+      - tema3/**
   workflow_dispatch:
 
 jobs:
 
-  tema-2:
+  tema-3:
 
     runs-on: ubuntu-latest
     strategy:
