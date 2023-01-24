@@ -1,12 +1,16 @@
-package es.urjc.code.daw.library.book;
-
-import javax.annotation.PostConstruct;
+package es.urjc.code.daw.library.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import es.urjc.code.daw.library.user.User;
-import es.urjc.code.daw.library.user.UserRepository;
+import es.urjc.code.daw.library.models.Book;
+import es.urjc.code.daw.library.models.ERole;
+import es.urjc.code.daw.library.models.Role;
+import es.urjc.code.daw.library.models.User;
+import es.urjc.code.daw.library.repository.BookRepository;
+import es.urjc.code.daw.library.repository.RoleRepository;
+import es.urjc.code.daw.library.repository.UserRepository;
+import jakarta.annotation.PostConstruct;
 
 @Component
 public class DatabaseInitializer {
@@ -16,6 +20,9 @@ public class DatabaseInitializer {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private RoleRepository roleRepository;
 
 	@PostConstruct
 	public void init() {
@@ -33,10 +40,24 @@ public class DatabaseInitializer {
 		bookRepository.save(new Book("LA LEGIÓN PERDIDA",
 				"En el año 53 a. C. el cónsul Craso cruzó el Éufrates para conquistar Oriente, pero su ejército fue destrozado en Carrhae. Una legión entera cayó prisionera de los partos. Nadie sabe a ciencia cierta qué pasó con aquella legión perdida.150 años después, Trajano está a punto de volver a cruzar el Éufrates. ..."));
 
-		// Sample users
+		roleRepository.save(new Role(ERole.ROLE_ADMIN));
+		roleRepository.save(new Role(ERole.ROLE_USER));
 
-		userRepository.save(new User("user", "pass", "ROLE_USER"));
-		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));
+		// Sample users
+		Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+			.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+
+		Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+			.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+
+		User user = new User("user", "pass", "user@urjc.es");
+		user.getRoles().add(userRole);
+
+		User admin = new User("admin", "pass", "admin@urjc.es");
+		admin.getRoles().add(adminRole);
+
+		userRepository.save(user);
+		userRepository.save(admin);
 	}
 
 }

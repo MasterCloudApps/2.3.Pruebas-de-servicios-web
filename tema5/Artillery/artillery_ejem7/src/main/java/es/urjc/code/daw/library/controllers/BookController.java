@@ -1,4 +1,4 @@
-package es.urjc.code.daw.library.book;
+package es.urjc.code.daw.library.controllers;
 
 import java.util.Collection;
 
@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.urjc.code.daw.library.models.Book;
+import es.urjc.code.daw.library.repository.BookRepository;
+
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/api/books")
 public class BookController {
 
 	private static final Logger log = LoggerFactory.getLogger(BookController.class);
@@ -36,7 +40,7 @@ public class BookController {
 		log.info("Get book {}", id);
 		
 		if (repository.existsById(id)) {
-			Book book = repository.getById(id);
+			Book book = repository.findById(id).get();
 			return new ResponseEntity<>(book, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -44,6 +48,7 @@ public class BookController {
 	}
 
 	@PostMapping("/")
+	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Book> createBook(@RequestBody Book book) {
 		
 		Book savedBook = repository.save(book);
@@ -52,6 +57,7 @@ public class BookController {
 	}
 
 	@PutMapping("/{id}")
+	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<Book> updateBook(@PathVariable long id, @RequestBody Book updatedBook) {
 		
 		if (repository.existsById(id)) {
@@ -64,6 +70,7 @@ public class BookController {
 	}
 
 	@DeleteMapping("/{id}")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<Book> deleteBook(@PathVariable long id) {
 
 		if (repository.existsById(id)) {

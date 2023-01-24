@@ -1,6 +1,10 @@
-package es.urjc.code.daw.library.user;
+package es.urjc.code.daw.library.repository;
+
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import es.urjc.code.daw.library.models.User;
 
 /**
  * Repository to manage users in database.
@@ -11,6 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	User findByName(String name);
+	Optional<User> findByUsername(String name);
 
 }
