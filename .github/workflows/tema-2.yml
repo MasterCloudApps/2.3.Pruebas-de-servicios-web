@@ -38,12 +38,14 @@ jobs:
         run: mvn -B test --file tema2/spring-test-ejem3/pom.xml
       - name: spring-test-ejem3
         run: mvn -B test --file tema2/spring-test-ejem3/pom.xml
+      - name: spring-test-ejem4
+        run: mvn -B test --file tema2/spring-test-ejem4/pom.xml
+      - name: spring-test-ejem5
+        run: mvn -B test --file tema2/spring-test-ejem5/pom.xml
       - name: spring-test-ejer1_solucion
-        run: mvn -B test --file tema2/spring-test-ejer1_solucion/pom.xml
+        run: mvn -B test --file tema2/spring-test-ejer1/pom.xml
       - name: spring-test-ejer2_solucion
         run: mvn -B test --file tema2/spring-test-ejer2_solucion/pom.xml
-      - name: spring-test-ejer3_solucion
-        run: mvn -B test --file tema2/spring-test-ejer3_solucion/pom.xml
       - name: test-containers-ejem1
         run: mvn -B test --file tema2/test-containers-ejem1/pom.xml
       - name: test-containers-ejem2A
