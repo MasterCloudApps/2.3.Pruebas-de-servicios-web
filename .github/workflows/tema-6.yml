@@ -1,4 +1,4 @@
-name: Tema 7 CI
+name: Tema 6 CI
 
 on:
   push:
@@ -30,16 +30,16 @@ jobs:
         with:
           java-version: ${{ matrix.jdk }}
       - name: atdd_ejem2
-        run: mvn -B test --file tema7/atdd_ejem2/pom.xml
+        run: mvn -B test --file tema6/atdd_ejem2/pom.xml
       - name: atdd_ejem3
-        run: mvn -B test --file tema7/atdd_ejem3/pom.xml
+        run: mvn -B test --file tema6/atdd_ejem3/pom.xml
       - name: atdd_ejem4
-        run: mvn -B test --file tema7/atdd_ejem4/pom.xml
+        run: mvn -B test --file tema6/atdd_ejem4/pom.xml
       - name: atdd_ejem5
-        run: mvn -B test --file tema7/atdd_ejem5/pom.xml
+        run: mvn -B test --file tema6/atdd_ejem5/pom.xml
       - name: atdd_ejer2
-        run: mvn -B test --file tema7/atdd_ejer2/pom.xml
+        run: mvn -B test --file tema6/atdd_ejer2/pom.xml
       - name: atdd_ejer3_solucion
-        run: mvn -B test --file tema7/atdd_ejer3_solucion/pom.xml
+        run: mvn -B test --file tema6/atdd_ejer3_solucion/pom.xml
 
 
