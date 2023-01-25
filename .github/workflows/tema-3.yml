@@ -33,15 +33,15 @@ jobs:
         with:
           java-version: ${{ matrix.jdk }}
       - name: books-rest-test-ejem1
-        run: mvn -B test --file tema5/books-rest-test-ejem1/pom.xml
+        run: mvn -B test --file tema3/books-rest-test-ejem1/pom.xml
       - name: quarkus-rest-test-ejem1
-        run: mvn -B test --file tema5/quarkus-rest-test-ejem1/pom.xml
+        run: mvn -B test --file tema3/quarkus-rest-test-ejem1/pom.xml
       - name: spring-rest-test-ejem1
-        run: mvn -B test --file tema5/spring-rest-test-ejem1/pom.xml
+        run: mvn -B test --file tema3/spring-rest-test-ejem1/pom.xml
       - name: spring-rest-test-ejem2
-        run: mvn -B test --file tema5/spring-rest-test-ejem2/pom.xml
+        run: mvn -B test --file tema3/spring-rest-test-ejem2/pom.xml
       - name: spring-rest-test-ejer1
-        run: mvn -B test --file tema5/spring-rest-test-ejer1/pom.xml
+        run: mvn -B test --file tema3/spring-rest-test-ejer1/pom.xml
       - name: webclient-ejem1
-        run: mvn -B test --file tema5/webclient-ejem1/pom.xml
+        run: mvn -B test --file tema3/webclient-ejem1/pom.xml
 
