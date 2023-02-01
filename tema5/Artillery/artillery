@@ -1,0 +1,4 @@
+#/bin/bash
+docker run --rm -it -v ${PWD}:/scripts artilleryio/artillery:latest run /scripts/$1
+
+# ./artillery artillery_ejem1/ejem1.yml
