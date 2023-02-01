@@ -35,7 +35,7 @@ public class UsersControllerTest {
 	 
 	    when(usersService.getUsers()).thenReturn(users);
 		
-	    mvc.perform(get("/users/")
+	    mvc.perform(get("/users")
 	    	      .contentType(MediaType.APPLICATION_JSON))
 	    	      .andExpect(status().isOk())
 	    	      .andExpect(jsonPath("$", hasSize(2)))

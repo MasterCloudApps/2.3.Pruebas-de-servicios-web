@@ -9,6 +9,6 @@ public class AnuncioController {
 	@GetMapping("/anuncio")	
 	public Anuncio getAnuncio() {
 
-		return new Anuncio("Pepe","Vendo moto","...");
+		return new Anuncio("Luis","Vendo moto","...");
 	}
 }
