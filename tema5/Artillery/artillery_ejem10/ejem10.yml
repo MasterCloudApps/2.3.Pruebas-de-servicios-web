@@ -4,7 +4,7 @@ config:
       target: "wss://web-chat.herokuapp.com/chat"
       phases:
         - duration: 30
-          arrivalRate: 15
+          arrivalRate: 30
     local:
       target: "ws://localhost:5000/chat"
       phases:
