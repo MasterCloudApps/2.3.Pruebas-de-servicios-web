@@ -1,4 +1,4 @@
 #/bin/bash
-docker run --rm -it -v ${PWD}:/scripts -w /scripts artilleryio/artillery:latest $@
+docker run --rm -it --network host -v ${PWD}:/scripts -w /scripts artilleryio/artillery:latest $@
 
 # ./artillery run artillery_ejem1/ejem1.yml
